@@ -1,22 +1,41 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import s from './Statistics.module.css';
 
 class Statistics extends Component {
+  static propTypes = {
+    good: PropTypes.number,
+    neutral: PropTypes.number,
+    bad: PropTypes.number,
+    total: PropTypes.number,
+    positivePercentage: PropTypes.number,
+  };
+
   render() {
+    const { good, neutral, bad, total, positivePercentage } = this.props;
+
     return (
-      <div>
-        <h1>Statistics</h1>
-        <p>Good: {this.props.good}</p>
-        <p>Neutral: {this.props.neutral}</p>
-        <p>Bad: {this.props.bad}</p>
-        <p>Total: {this.props.total}</p>
-        <p>
-          Positive feedback:{' '}
-          {this.props.positivePercentage > 0
-            ? this.props.positivePercentage
-            : 0}
-          %
-        </p>
-      </div>
+      <>
+        {total === 0 ? (
+          <p>No feedback given</p>
+        ) : (
+          <div>
+            <p className={s.good}>
+              <b>Good:</b> {good}
+            </p>
+            <p className={s.neutral}>
+              <b>Neutral:</b> {neutral}
+            </p>
+            <p className={s.bad}>
+              <b>Bad:</b> {bad}
+            </p>
+            <p className={s.total}>Total: {total}</p>
+            <p className={s.percentage}>
+              Positive feedback: {positivePercentage}%
+            </p>
+          </div>
+        )}
+      </>
     );
   }
 }

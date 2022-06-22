@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import Feedback from './Feedback';
+import Section from './Section';
 import FeedbackOptions from './FeedbackOptions';
 import Statistics from './Statistics';
 
@@ -40,28 +40,28 @@ class App extends Component {
   };
 
   countPositiveFeedbackPercentage = () => {
-    return Math.round(
-      Number((this.state.good / this.countTotalFeedback()) * 100)
-    );
+    return Math.round((this.state.good / this.countTotalFeedback()) * 100);
   };
 
   render() {
-    // const { good, neutral, bad } = this.state;
-
     return (
-      <>
-        {/* <Section title={ } /> */}
-        <FeedbackOptions
-          onLeaveFeedback={this.buttonClickHandler()}
-        ></FeedbackOptions>
-        <Statistics
-          good={this.state.good}
-          neutral={this.state.neutral}
-          bad={this.state.bad}
-          total={this.countTotalFeedback()}
-          positivePercentage={this.countPositiveFeedbackPercentage()}
-        ></Statistics>
-      </>
+      <div>
+        <Section title="Please leave feedback">
+          <FeedbackOptions
+            options={this.state}
+            onLeaveFeedback={this.buttonClickHandler}
+          />
+        </Section>
+        <Section title="Statistics">
+          <Statistics
+            good={this.state.good}
+            neutral={this.state.neutral}
+            bad={this.state.bad}
+            total={this.countTotalFeedback()}
+            positivePercentage={this.countPositiveFeedbackPercentage()}
+          ></Statistics>
+        </Section>
+      </div>
     );
   }
 }

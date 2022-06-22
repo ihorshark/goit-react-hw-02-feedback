@@ -1,0 +1,16 @@
+.good {
+  color: green;
+}
+
+.neutral {
+  color: blueviolet;
+}
+
+.bad {
+  color: red;
+}
+
+.total,
+.percentage {
+  font-size: 20px;
+}
