@@ -10,27 +10,10 @@ class App extends Component {
     bad: 0,
   };
 
-  buttonClickHandler = e => {
-    if (e.currentTarget.name === 'good') {
-      this.setState(prevState => {
-        return {
-          good: prevState.good + 1,
-        };
-      });
-    } else if (e.currentTarget.name === 'neutral') {
-      this.setState(prevState => {
-        return {
-          neutral: prevState.neutral + 1,
-        };
-      });
-    }
-    if (e.currentTarget.name === 'bad') {
-      this.setState(prevState => {
-        return {
-          bad: prevState.bad + 1,
-        };
-      });
-    }
+  buttonClickHandler = reviewBtn => {
+    this.setState(prevState => ({
+      [reviewBtn]: prevState[reviewBtn] + 1,
+    }));
   };
 
   countTotalFeedback = () => {

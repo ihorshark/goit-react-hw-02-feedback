@@ -16,7 +16,7 @@ class FeedbackOptions extends Component {
           className={s.button}
           type="button"
           name="good"
-          onClick={onLeaveFeedback}
+          onClick={() => onLeaveFeedback('good')}
         >
           Good
         </button>
@@ -24,7 +24,7 @@ class FeedbackOptions extends Component {
           className={s.button}
           type="button"
           name="neutral"
-          onClick={onLeaveFeedback}
+          onClick={() => onLeaveFeedback('neutral')}
         >
           Neutral
         </button>
@@ -32,7 +32,7 @@ class FeedbackOptions extends Component {
           className={s.button}
           type="button"
           name="bad"
-          onClick={onLeaveFeedback}
+          onClick={() => onLeaveFeedback('bad')}
         >
           Bad
         </button>
